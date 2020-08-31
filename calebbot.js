@@ -42,14 +42,10 @@ client.on('message', message =>{
 
 
 // Keep this at the bottom
-client.on("ready", () =>{
-    client.user.setPresence({
-        status: "online",  //You can show online, idle....
-        game: {
-            name: "!youtube, !twitch, !twitter",  //The message shown
-            type: "STREAMING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    });
- });
+client.on('ready', () =>{
+    client.user.setActivity('!youtube, !twitch, !twitter', { type: 'STREAMING'}).catch(console.error)
+})
+
+ 
  
 client.login('NzUwMDYyODkyNjMxNzE5OTU4.X01EgQ.mpKcE--nSipjs7NnRF0C8wDAeJg');
