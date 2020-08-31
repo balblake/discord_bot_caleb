@@ -43,7 +43,6 @@ client.on('message', message =>{
 
 // Keep this at the bottom
 client.on("ready", () =>{
-    console.log(`Logged in as ${client.user.tag}!`);
     client.user.setPresence({
         status: "online",  //You can show online, idle....
         game: {
