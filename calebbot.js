@@ -40,6 +40,9 @@ client.on('message', message =>{
      if(command === 'commands'){
         client.commands.get('commands').execute(message, args);
         } 
+    if(command === 'clear'){
+        client.commands.get('clear').execute(message, args);
+        } 
     if(command === 'kick'){
        client.commands.get('kick').execute(message, args);
         } 
