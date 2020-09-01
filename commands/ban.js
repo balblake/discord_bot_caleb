@@ -2,7 +2,7 @@ module.exports = {
     name: 'ban',
     description: "bans user",
     execute(message, args){
-        if(message.member.roles.cache.has('386344247843880960')){
+        if(message.member.roles.cache.has('749510080159809586')){
             const userBan = message.mentions.users.first();
 
             if (userBan) {

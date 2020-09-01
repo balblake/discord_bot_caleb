@@ -3,7 +3,7 @@ module.exports = {
     description: "clear",
     execute(message, args) {
 
-        if(message.member.roles.cache.has('386344247843880960')){
+        if(message.member.roles.cache.has('749510080159809586')){
         if(!args[0]) return message.reply("How many message would you like to clear?")
         if(parseInt(args[0]) > 99) return message.reply("You may not delete more than 99 messages!");
 
