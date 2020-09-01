@@ -40,6 +40,12 @@ client.on('message', message =>{
      if(command === 'commands'){
         client.commands.get('commands').execute(message, args);
         } 
+    if(command === 'kick'){
+       client.commands.get('kick').execute(message, args);
+        } 
+    if(command === 'ban'){
+        client.commands.get('ban').execute(message, args);
+        } 
 });
 
 
