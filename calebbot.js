@@ -13,7 +13,15 @@ for(const file of commandFiles){
 
     client.commands.set(command.name, command);
 }
- 
+
+client.on('guildMemberAdd', member => {
+    console.log('User ' + member.user.username + ' has joined the server!');
+    var role = member.guild.roles.cache.find(role => role.name === 'Trucker babies');
+    member.roles.add(role);
+    });
+    client.on('guildMemberAdd', member => {
+    member.guild.channels.cache.get('749511642894565446').send(`Welcome, **${member}** to caleb's discord server! Make sure to check out his socials by typing in #bot-commands !socials`);
+    }); 
  
 client.once('ready', () => {
     console.log('Caleb Bot is online!');
@@ -51,6 +59,9 @@ client.on('message', message =>{
         } 
     if(command === 'mcommands'){
         client.commands.get('mcommands').execute(message, args);
+        } 
+    if(command === 'socials'){
+        client.commands.get('socials').execute(message, args);
         } 
 });
 
