@@ -20,7 +20,7 @@ client.on('guildMemberAdd', member => {
     member.roles.add(role);
     });
     client.on('guildMemberAdd', member => {
-    member.guild.channels.cache.get('749511642894565446').send(`Welcome, **${member}** to caleb's discord server!\n Make sure to check out my socials!\n**Twitch                                                       Twitter**\nhttps://twitch.tv/calebftg                https://twitter.com/FTGCaleb`);
+    member.guild.channels.cache.get('749511642894565446').send(`Welcome, **${member}** to caleb's discord server!\nMake sure to check out my socials!\n**Twitch                                                       Twitter**\nhttps://twitch.tv/calebftg                https://twitter.com/FTGCaleb`);
     }); 
  
 client.once('ready', () => {
