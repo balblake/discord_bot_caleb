@@ -16,7 +16,7 @@ for(const file of commandFiles){
 
 client.on('guildMemberAdd', member => {
     console.log('User ' + member.user.username + ' has joined the server!');
-    var role = member.guild.roles.cache.find(role => role.name === 'Trucker babies');
+    var role = member.guild.roles.cache.find(role => role.name === 'For the girls');
     member.roles.add(role);
     });
     client.on('guildMemberAdd', member => {
