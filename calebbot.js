@@ -29,6 +29,27 @@ client.on('guildMemberAdd', member => {
     member.guild.channels.cache.get('749511642894565446').send(`Welcome, **${member}** to caleb's discord server!\nMake sure to check out his socials by going to ${member.guild.channels.cache.get(targetChannelId).toString()} and typing !socials\n**Twitch                                                       Twitter**\nhttps://twitch.tv/calebftg                https://twitter.com/FTGCaleb`);
     });
 
+    client.on('message', message => {
+        if(message.member.roles.cache.has('749510080159809586')){
+        if (message.content.startsWith("!message")) {
+            // Get the channel mention
+            if (message.mentions.channels.size == 0) {
+                message.reply("please mention a channel first.");
+            }
+            else {
+                let targetChannel = message.mentions.channels.first();
+                // Get the message to print
+      
+                const args = message.content.split(" ").slice(2);
+                let saytext = args.join(" ");
+                targetChannel.send(saytext);
+                message.delete();
+            }
+            }
+        }
+      });
+
+      
 client.once('ready', () => {
     console.log('Caleb Bot is online!');
     memberCount(client)
