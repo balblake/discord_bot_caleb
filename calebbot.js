@@ -3,6 +3,7 @@ const client = new Discord.Client();
  
 const config = require('./token.json');
 const memberCount = require('./member-count')
+const welcome = require('./welcome')
 
 client.login(config.token);
 
@@ -18,41 +19,11 @@ for(const file of commandFiles){
 
     client.commands.set(command.name, command);
 }
-
-client.on('guildMemberAdd', member => {
-    console.log('User ' + member.user.username + ' has joined the server!');
-    var role = member.guild.roles.cache.find(role => role.name === 'For the girls');
-    member.roles.add(role);
-    });
-    client.on('guildMemberAdd', member => {
-    const targetChannelId = '750147958002942033'
-    member.guild.channels.cache.get('749511642894565446').send(`Welcome, **${member}** to caleb's discord server!\nMake sure to check out his socials by going to ${member.guild.channels.cache.get(targetChannelId).toString()} and typing !socials\n**Twitch                                                       Twitter**\nhttps://twitch.tv/calebftg                https://twitter.com/FTGCaleb`);
-    });
-
-    client.on('message', message => {
-        if(message.member.roles.cache.has('749510080159809586')){
-        if (message.content.startsWith("!message")) {
-            // Get the channel mention
-            if (message.mentions.channels.size == 0) {
-                message.reply("please mention a channel first.");
-            }
-            else {
-                let targetChannel = message.mentions.channels.first();
-                // Get the message to print
-      
-                const args = message.content.split(" ").slice(2);
-                let saytext = args.join(" ");
-                targetChannel.send(saytext);
-                message.delete();
-            }
-            }
-        }
-      });
-
       
 client.once('ready', () => {
     console.log('Caleb Bot is online!');
     memberCount(client)
+    welcome(client)
 });
  
 client.on('message', message =>{
@@ -92,10 +63,13 @@ client.on('message', message =>{
         client.commands.get('socials').execute(message, args);
         } 
     if(command === 'mute'){
-       client.commands.get('mute').execute(message, args);
+       client.commands.get('mute').execute(message, args, member);
         } 
     if(command === 'unmute'){
-        client.commands.get('unmute').execute(message, args);
+        client.commands.get('unmute').execute(message, args, member);
+        } 
+    if(command === 'message'){
+        client.commands.get('message').execute(message, args);
         } 
 });
 
