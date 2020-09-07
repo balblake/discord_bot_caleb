@@ -91,6 +91,12 @@ client.on('message', message =>{
     if(command === 'socials'){
         client.commands.get('socials').execute(message, args);
         } 
+    if(command === 'mute'){
+       client.commands.get('mute').execute(message, args);
+        } 
+    if(command === 'unmute'){
+        client.commands.get('unmute').execute(message, args);
+        } 
 });
 
 

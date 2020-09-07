@@ -2,6 +2,7 @@ module.exports = {
     name: 'kick',
     description: "kicks user",
     execute(message, args){
+        message.delete();
         if(message.member.roles.cache.has('749510080159809586')){
             const userKick = message.mentions.users.first();
 
